@@ -1,3 +1,4 @@
+import { useState } from "react";
 import tariffs from "./tariffs.json"
 
 const TariffCard = ({tariffInfo}) =>{
@@ -33,7 +34,7 @@ const TariffCard = ({tariffInfo}) =>{
            
 
            <div className="col-12">
-                <span>Оборудование: </span>
+                <span>Оборудование (аренда): </span>
                 <span>{tariffInfo.rent}</span>
             </div>
 
@@ -47,14 +48,30 @@ const TariffCard = ({tariffInfo}) =>{
 }
 
 const MainPage = () =>{
-    console.log(tariffs)
+
+    const tariffsArray = tariffs.tariffs;
+
+    const [currentTariff, setCurrentTariff] = useState(0)
+
+    const next = () =>{
+        if(currentTariff < tariffsArray.length-2)
+            setCurrentTariff(prev => prev+1)
+    }
+
+    const previous = () =>{
+        if(currentTariff >= 0)
+            setCurrentTariff(prev => prev-1)
+    }
     
     return(
         <div className="container-fluid">
             <div className="row justify-content-center">
-                {tariffs.tariffs.map(t =>(
-                    <TariffCard tariffInfo={t} />
-                ))}
+                <TariffCard tariffInfo={tariffsArray[currentTariff]}/>
+            </div>
+
+            <div className="col-12 row justify-content-center">
+                <button className="btn btn-primary col-6" onClick={previous}>{"<---"}</button>
+                <button className="btn btn-primary col-6" onClick={next}>{"--->"}</button>
             </div>
         </div>
     )
