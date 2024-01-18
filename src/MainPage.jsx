@@ -59,19 +59,19 @@ const MainPage = () =>{
     }
 
     const previous = () =>{
-        if(currentTariff >= 0)
+        if(currentTariff > 0)
             setCurrentTariff(prev => prev-1)
     }
     
     return(
-        <div className="container-fluid">
+        <div className="container-fluid main">
             <div className="row justify-content-center">
                 <TariffCard tariffInfo={tariffsArray[currentTariff]}/>
             </div>
 
-            <div className="col-12 row justify-content-center">
-                <button className="btn btn-primary col-6" onClick={previous}>{"<---"}</button>
-                <button className="btn btn-primary col-6" onClick={next}>{"--->"}</button>
+            <div className="col-12 row justify-content-center btns">
+                <button className="btn btn-primary col-6 nav-btn" onClick={previous}>{"<---"}</button>
+                <button className="btn btn-primary col-6 nav-btn" onClick={next}>{"--->"}</button>
             </div>
         </div>
     )
