@@ -71,7 +71,7 @@ const MainPage = () =>{
         if(currentTariff < tariffsArray.length-1)
             setCurrentTariff(prev => prev+1)
         
-        if (currentTariff == tariffsArray.length-2){
+        if (currentTariff === tariffsArray.length-2){
             console.log(2)
             const anim = document.getElementById("btn-next").animate([
                 {width:"0px"}
@@ -112,7 +112,7 @@ const MainPage = () =>{
         if(currentTariff > 0)
             setCurrentTariff(prev => prev-1)
         
-        if(currentTariff == 1){
+        if(currentTariff === 1){
             const anim = document.getElementById("btn-back").animate([
                 {width:"0px"}
             ],{duration:500})
