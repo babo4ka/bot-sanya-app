@@ -5,7 +5,7 @@ import { useTg } from "./utils";
 const TariffCard = ({tariffInfo}) =>{
 
     return(
-        <div className="col-12 tariff-card row justify-content-center">
+        <div className="col-12 tariff-card row justify-content-center mt-3">
             <h3 className="col-12 text-center mb-5">{tariffInfo.name}</h3>
             <div className="col-12 tariff-element text-center">
                 <span>Интернет: </span>
@@ -84,8 +84,8 @@ const MainPage = () =>{
             </div>
 
             <div className="col-12 row justify-content-center btns">
-                <button className="btn btn-primary col-6 nav-btn" onClick={previous}>{"<---"}</button>
-                <button className="btn btn-primary col-6 nav-btn" onClick={next}>{"--->"}</button>
+                <button className="btn btn-primary col-2 nav-btn" onClick={previous}>{"<---"}</button>
+                <button className="btn btn-primary col-2 nav-btn" onClick={next}>{"--->"}</button>
             </div>
         </div>
     )
