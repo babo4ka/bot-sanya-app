@@ -14,7 +14,7 @@
 }
 
 .btns{
-  bottom: 50px;
+  bottom: 150px;
   position: absolute;
 }
 
@@ -26,4 +26,6 @@
 .tariff-element{
   border: 1px solid black;
   font-weight: 500;
+
+  height: 50px;
 }
