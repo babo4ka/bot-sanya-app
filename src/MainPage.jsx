@@ -65,14 +65,85 @@ const MainPage = () =>{
 
     const [currentTariff, setCurrentTariff] = useState(0)
 
+    const [hidden, setHidden] = useState(true)
+
     const next = () =>{
         if(currentTariff < tariffsArray.length-1)
             setCurrentTariff(prev => prev+1)
+        else{
+            const anim = document.getElementById("btn-next").animate([
+                {width:"0px"}
+            ],{duration:500})
+
+            document.getElementById("btn-back").animate([
+                {width:"200px"}
+            ],{duration:500})
+
+            anim.onfinish = () =>{
+                document.getElementById("btn-next").style.display = "none"
+                document.getElementById("btn-back").style.width = "200px"
+            }
+
+            setHidden(true)
+        }
+
+        if(hidden){
+            setHidden(false)
+            document.getElementById("btn-back").style.display = "block"
+
+            const anim = document.getElementById("btn-next").animate([
+                {width:"100px"}
+            ],{duration:500})
+
+            document.getElementById("btn-back").animate([
+                {width:"100px"}
+            ],{duration:500})
+
+            anim.onfinish = () =>{
+                document.getElementById("btn-next").style.width = "100px"
+                document.getElementById("btn-back").style.width = "100px"
+            }
+        }
     }
 
     const previous = () =>{
         if(currentTariff > 0)
             setCurrentTariff(prev => prev-1)
+        else{
+            const anim = document.getElementById("btn-back").animate([
+                {width:"0px"}
+            ],{duration:500})
+
+            document.getElementById("btn-next").animate([
+                {width:"200px"}
+            ],{duration:500})
+
+            anim.onfinish = () =>{
+                document.getElementById("btn-back").style.display = "none"
+                document.getElementById("btn-back").style.width = "0px"
+                document.getElementById("btn-next").style.width = "200px"
+            }
+
+            setHidden(true)
+        }
+
+        if(hidden){
+            setHidden(false)
+            document.getElementById("btn-next").style.display = "block"
+
+            const anim = document.getElementById("btn-next").animate([
+                {width:"100px"}
+            ],{duration:500})
+
+            document.getElementById("btn-back").animate([
+                {width:"100px"}
+            ],{duration:500})
+
+            anim.onfinish = () =>{
+                document.getElementById("btn-next").style.width = "100px"
+                document.getElementById("btn-back").style.width = "100px"
+            }
+        }
     }
     
     return(
@@ -84,8 +155,8 @@ const MainPage = () =>{
             </div>
 
             <div className="col-12 row justify-content-center btns">
-                <button className="btn btn-primary col-2 nav-btn" onClick={previous}>{"<---"}</button>
-                <button className="btn btn-primary col-2 nav-btn" onClick={next}>{"--->"}</button>
+                <button id="btn-back" className="btn btn-primary nav-btn text-truncate" onClick={previous}>{"<---"}</button>
+                <button id="btn-next" className="btn btn-primary nav-btn text-truncate" onClick={next}>{"--->"}</button>
             </div>
         </div>
     )
