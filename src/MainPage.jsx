@@ -57,7 +57,7 @@ const MainPage = () =>{
 
     useEffect(()=>{
         tg.ready()
-    }, [])
+    }, [tg])
 
     const tariffsArray = tariffs.tariffs;
 
@@ -75,7 +75,7 @@ const MainPage = () =>{
     
     return(
         <div className="container-fluid main">
-            <h4>{user?.first_name}</h4>
+            <h4 className="text-center">Привет, {user?.first_name}</h4>
             <div className="row justify-content-center">
                 <TariffCard tariffInfo={tariffsArray[currentTariff]}/>
             </div>
