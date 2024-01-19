@@ -6,41 +6,44 @@ const TariffCard = ({tariffInfo}) =>{
     return(
         <div className="col-12 tariff-card row justify-content-center">
             <h3 className="col-12 text-center">{tariffInfo.name}</h3>
-            <div className="col-12">
+            <div className="col-12 tariff-element text-center">
                 <span>Интернет: </span>
-                <span>{tariffInfo.internet}</span>
+                <span>{tariffInfo.internet} Мбит/сек.</span>
             </div>
             
             {tariffInfo.tv?
-                <div className="col-12">
+                <div className="col-12 tariff-element text-center">
                     <span>ТВ: </span>
-                    <span>{tariffInfo.tv}</span>
+                    <span>{tariffInfo.tv} каналов</span>
                 </div>
             :""}
 
             {tariffInfo.wink?
-                <div className="col-12">
+                <div className="col-12 tariff-element text-center">
                     <span>WINK: </span>
                     <span>{tariffInfo.wink}</span>
                 </div>
             :""}
 
             {tariffInfo.mobile?
-                <div className="col-12">
+                <div className="col-12 tariff-element text-center">
                     <span>Мобильная связь: </span>
                     <span>{tariffInfo.mobile}</span>
                 </div>
             :""}
            
 
-           <div className="col-12">
+           <div className="col-12 tariff-element text-center">
                 <span>Оборудование (аренда): </span>
                 <span>{tariffInfo.rent}</span>
             </div>
 
-            <div className="col-12">
-                <span>Цена: </span>
-                <span>{tariffInfo.price}</span>
+            <div className="col-12 tariff-element row justify-content-center text-center">
+                {/* <span>Цена: </span> */}
+                <span className="col-12">{tariffInfo.price}</span>
+                {tariffInfo.price2?
+                    <span className="col-12">{tariffInfo.price2}</span>
+                :""}
             </div>
 
         </div>
@@ -54,7 +57,7 @@ const MainPage = () =>{
     const [currentTariff, setCurrentTariff] = useState(0)
 
     const next = () =>{
-        if(currentTariff < tariffsArray.length-2)
+        if(currentTariff < tariffsArray.length-1)
             setCurrentTariff(prev => prev+1)
     }
 

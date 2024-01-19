@@ -19,3 +19,8 @@
   margin: 0 15px 0 15px;
   width: 250px;
 }
+
+.tariff-element{
+  border: 1px solid black;
+  font-weight: 500;
+}
