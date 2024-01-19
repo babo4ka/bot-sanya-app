@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import tariffs from "./tariffs.json"
+import { useTg } from "./utils";
 
 const TariffCard = ({tariffInfo}) =>{
 
@@ -52,6 +53,12 @@ const TariffCard = ({tariffInfo}) =>{
 
 const MainPage = () =>{
 
+    const {tg, user}= useTg()
+
+    useEffect(()=>{
+        tg.ready()
+    }, [])
+
     const tariffsArray = tariffs.tariffs;
 
     const [currentTariff, setCurrentTariff] = useState(0)
@@ -68,6 +75,7 @@ const MainPage = () =>{
     
     return(
         <div className="container-fluid main">
+            <h4>{user?.first_name}</h4>
             <div className="row justify-content-center">
                 <TariffCard tariffInfo={tariffsArray[currentTariff]}/>
             </div>
