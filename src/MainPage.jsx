@@ -7,7 +7,7 @@ const TariffCard = ({tariffInfo}) =>{
     return(
         <div className="col-12 tariff-card row justify-content-center mt-3">
             <h3 className="col-12 text-center mb-5">{tariffInfo.name}</h3>
-            <div className="col-12 tariff-element text-center">
+            <div className="col-12 tariff-element text-center wifi-block">
                 <span>Интернет: </span>
                 <span>{tariffInfo.internet} Мбит/сек.</span>
             </div>

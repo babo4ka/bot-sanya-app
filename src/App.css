@@ -14,7 +14,7 @@
 }
 
 .btns{
-  bottom: 150px;
+  bottom: 5px;
   position: absolute;
 
 }
@@ -39,4 +39,8 @@
 #btn-next{
   width: 200px;
   display: block;
+}
+
+.wifi-block{
+  background-image: url("./assets//wifi-back.png");
 }
