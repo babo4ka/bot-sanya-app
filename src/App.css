@@ -13,10 +13,17 @@
   height: 500px;
 }
 
+.tariffs-group-choose{
+  margin-top: 50px;
+}
+
+.tariff-group-btn{
+  margin: 15px 0px 15px 0px;
+}
+
 .btns{
   bottom: 5px;
   position: absolute;
-
 }
 
 .nav-btn{
@@ -25,8 +32,7 @@
 }
 
 .tariff-element{
-  border: 1px solid black;
-  font-weight: 500;
+  font-weight: 700;
 
   height: 50px;
 }
