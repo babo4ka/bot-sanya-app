@@ -51,7 +51,7 @@ const TariffCard = ({tariffInfo}) =>{
     )
 }
 
-const TariffsShowing = ({tariffs})=>{
+const TariffsShowing = ({tariffs, goBack})=>{
 
     const [currentTariff, setCurrentTariff] = useState(0)
 
@@ -148,6 +148,12 @@ const TariffsShowing = ({tariffs})=>{
             <div className="col-12 row justify-content-center btns">
                 <button id="btn-back" className="btn btn-primary nav-btn text-truncate" onClick={previous}>{"<---"}</button>
                 <button id="btn-next" className="btn btn-primary nav-btn text-truncate" onClick={next}>{"--->"}</button>
+
+                <div className="col-12 row justify-content-center mt-3">
+                    <button onClick={goBack} className="col-3 btn btn-primary">
+                        назад к выбору тарифов
+                    </button>
+                </div>
             </div>
         </div>
 
