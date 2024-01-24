@@ -6,7 +6,8 @@ const TariffCard = ({tariffInfo}) =>{
     const {tg} = useTg()
 
     const onChoose = () =>{
-        tg.sendData("ghe")
+        alert("dsadsa")
+        tg.sendData(JSON)
     }
 
     return(
