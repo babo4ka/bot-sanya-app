@@ -1,6 +1,13 @@
 import { useState } from "react"
+import { useTg } from "./utils"
 
 const TariffCard = ({tariffInfo}) =>{
+    
+    const tg = useTg()
+
+    const onChoose = () =>{
+        tg.sendData("ghe")
+    }
 
     return(
         <div className="col-12 tariff-card row justify-content-center mt-3">
@@ -45,7 +52,7 @@ const TariffCard = ({tariffInfo}) =>{
                 :""}
             </div>
 
-            <button className="btn btn-primary mt-3">Выбрать этот тариф</button>
+            <button onClick={onChoose} className="btn btn-primary mt-3">Выбрать этот тариф</button>
 
         </div>
     )
@@ -60,9 +67,27 @@ const TariffsShowing = ({tariffs, goBack})=>{
     const next = () =>{
         if(currentTariff < tariffs.length-1)
             setCurrentTariff(prev => prev+1)
+
+        
+        if(hidden){
+            setHidden(false)
+            document.getElementById("btn-back").style.display = "block"
+    
+            const anim = document.getElementById("btn-next").animate([
+                {width:"100px"}
+            ],{duration:500})
+    
+            document.getElementById("btn-back").animate([
+                {width:"100px"}
+            ],{duration:500})
+    
+            anim.onfinish = () =>{
+                document.getElementById("btn-next").style.width = "100px"
+                document.getElementById("btn-back").style.width = "100px"
+            }
+        }        
         
         if (currentTariff === tariffs.length-2){
-            console.log(2)
             const anim = document.getElementById("btn-next").animate([
                 {width:"0px"}
             ],{duration:500})
@@ -79,28 +104,30 @@ const TariffsShowing = ({tariffs, goBack})=>{
             setHidden(true)
         }
 
-        if(hidden){
-            setHidden(false)
-            document.getElementById("btn-back").style.display = "block"
 
-            const anim = document.getElementById("btn-next").animate([
-                {width:"100px"}
-            ],{duration:500})
-
-            document.getElementById("btn-back").animate([
-                {width:"100px"}
-            ],{duration:500})
-
-            anim.onfinish = () =>{
-                document.getElementById("btn-next").style.width = "100px"
-                document.getElementById("btn-back").style.width = "100px"
-            }
-        }
     }
 
     const previous = () =>{
         if(currentTariff > 0)
             setCurrentTariff(prev => prev-1)
+
+        if(hidden){
+            setHidden(false)
+            document.getElementById("btn-next").style.display = "block"
+    
+            const anim = document.getElementById("btn-next").animate([
+                {width:"100px"}
+            ],{duration:500})
+    
+            document.getElementById("btn-back").animate([
+                {width:"100px"}
+            ],{duration:500})
+    
+            anim.onfinish = () =>{
+                document.getElementById("btn-next").style.width = "100px"
+                document.getElementById("btn-back").style.width = "100px"
+            }
+        }
         
         if(currentTariff === 1){
             const anim = document.getElementById("btn-back").animate([
@@ -120,23 +147,6 @@ const TariffsShowing = ({tariffs, goBack})=>{
             setHidden(true)
         }
 
-        if(hidden){
-            setHidden(false)
-            document.getElementById("btn-next").style.display = "block"
-
-            const anim = document.getElementById("btn-next").animate([
-                {width:"100px"}
-            ],{duration:500})
-
-            document.getElementById("btn-back").animate([
-                {width:"100px"}
-            ],{duration:500})
-
-            anim.onfinish = () =>{
-                document.getElementById("btn-next").style.width = "100px"
-                document.getElementById("btn-back").style.width = "100px"
-            }
-        }
     }
 
     return(
