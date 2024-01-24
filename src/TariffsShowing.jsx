@@ -149,11 +149,9 @@ const TariffsShowing = ({tariffs, goBack})=>{
                 <button id="btn-back" className="btn btn-primary nav-btn text-truncate" onClick={previous}>{"<---"}</button>
                 <button id="btn-next" className="btn btn-primary nav-btn text-truncate" onClick={next}>{"--->"}</button>
 
-                <div className="col-12 row justify-content-center mt-3">
-                    <button onClick={goBack} className="col-3 btn btn-primary">
+                <button onClick={goBack} className="col-12 btn btn-primary mt-3">
                         назад к выбору тарифов
                     </button>
-                </div>
             </div>
         </div>
 
