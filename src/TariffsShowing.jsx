@@ -3,7 +3,7 @@ import { useTg } from "./utils"
 
 const TariffCard = ({tariffInfo}) =>{
     
-    const tg = useTg()
+    const {tg} = useTg()
 
     const onChoose = () =>{
         tg.sendData("ghe")
