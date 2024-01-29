@@ -7,7 +7,7 @@ const TariffsChoosing = ({chooseTariffsGroup}) =>{
 
 
     return(
-        <div className="col-12 row justify-content-center tariffs-group-choose">
+        <div className="col-12 row justify-content-center tariffs-group-choose margin-left-0">
                 <button onClick={()=>chooseTariffsGroup("net-n-tv")} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет и ТВ</button>
 
 
