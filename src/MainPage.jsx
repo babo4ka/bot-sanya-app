@@ -8,16 +8,16 @@ const TariffsChoosing = ({chooseTariffsGroup}) =>{
 
     return(
         <div className="col-12 row justify-content-center tariffs-group-choose">
-                <button onClick={()=>chooseTariffsGroup("net-n-tv")} className="btn btn-primary col-12 tariff-group-btn">Интернет и ТВ</button>
+                <button onClick={()=>chooseTariffsGroup("net-n-tv")} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет и ТВ</button>
 
 
-                <button onClick={()=>chooseTariffsGroup("net-n-tv-n-mob")} className="btn btn-primary col-12 tariff-group-btn">Интернет, ТВ и мобильаня связь</button>
+                <button onClick={()=>chooseTariffsGroup("net-n-tv-n-mob")} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет, ТВ и мобильаня связь</button>
 
 
-                <button onClick={()=>chooseTariffsGroup("zal")} className="btn btn-primary col-12 tariff-group-btn">GPON для: Залесный, Аракчино, Лагерная, Адмиралтейская слобода, Красная горка, Юдино</button>
+                <button onClick={()=>chooseTariffsGroup("zal")} className="btn btn-primary col-12 tariff-group-btn rost-btn">GPON для: Залесный, Аракчино, Лагерная, Адмиралтейская слобода, Красная горка, Юдино</button>
 
 
-                <button onClick={()=>chooseTariffsGroup("derb")} className="btn btn-primary col-12 tariff-group-btn">GPON для ЖК "Беседа"</button>
+                <button onClick={()=>chooseTariffsGroup("derb")} className="btn btn-primary col-12 tariff-group-btn rost-btn">GPON для ЖК "Беседа"</button>
 
         </div>
     )

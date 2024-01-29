@@ -11,7 +11,7 @@ const TariffCard = ({tariffInfo}) =>{
     }
 
     return(
-        <div className="col-12 tariff-card row justify-content-center mt-3">
+        <div className="col-12 tariff-card row justify-content-center mt-3 tariffs-container">
             <h3 className="col-12 text-center mb-5">{tariffInfo.name}</h3>
             <div className="col-12 tariff-element text-center wifi-block">
                 <span>Интернет: </span>
@@ -53,7 +53,7 @@ const TariffCard = ({tariffInfo}) =>{
                 :""}
             </div>
 
-            <button onClick={onChoose} className="btn btn-primary mt-3">Выбрать этот тариф</button>
+            <button onClick={onChoose} className="btn btn-primary mt-5 rost-btn">Выбрать этот тариф</button>
 
         </div>
     )
@@ -152,15 +152,16 @@ const TariffsShowing = ({tariffs, goBack})=>{
 
     return(
         <div className="container-fluid">
+
             <div className="row justify-content-center">
                 <TariffCard tariffInfo={tariffs[currentTariff]}/>
             </div>
 
             <div className="col-12 row justify-content-center btns mt-5">
-                <button id="btn-back" className="btn btn-primary nav-btn text-truncate" onClick={previous}>{"<---"}</button>
-                <button id="btn-next" className="btn btn-primary nav-btn text-truncate" onClick={next}>{"--->"}</button>
+                <button id="btn-back" className="btn btn-primary nav-btn text-truncate rost-btn" onClick={previous}>{"<---"}</button>
+                <button id="btn-next" className="btn btn-primary nav-btn text-truncate rost-btn" onClick={next}>{"--->"}</button>
 
-                <button onClick={goBack} className="col-12 btn btn-primary mt-3">
+                <button onClick={goBack} className="col-12 btn btn-primary mt-5 rost-btn">
                         назад к выбору тарифов
                 </button>
             </div>

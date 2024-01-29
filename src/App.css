@@ -1,6 +1,6 @@
 *{
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
 
   box-sizing: border-box;
 
@@ -10,7 +10,9 @@
 
 .main{
   /* position: relative; */
-  height: 500px;
+  /* height: 500px; */
+  padding-right: 0;
+  margin: 0;
 }
 
 .tariffs-group-choose{
@@ -49,4 +51,19 @@
 
 .wifi-block{
   background-image: url("./assets//wifi-back.png");
+}
+
+.rost-btn{
+  background-color: #7700ff;
+  border-color: #7700ff;
+}
+
+.rost-btn:hover{
+  background-color: #9235fc;
+  border-color: #7700ff;
+}
+
+
+.tariffs-container{
+
 }
