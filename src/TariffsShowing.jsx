@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useTg } from "./utils"
+import $ from 'jquery'
 
 const TariffCard = ({tariffInfo}) =>{
     
@@ -11,7 +12,7 @@ const TariffCard = ({tariffInfo}) =>{
     }
 
     return(
-        <div className="col-12 tariff-card row justify-content-center mt-3 tariffs-container">
+        <div id="tariffs-card" className="col-12 tariff-card row justify-content-center mt-3">
             <h3 className="col-12 text-center mb-5">{tariffInfo.name}</h3>
             <div className="col-12 tariff-element text-center wifi-block">
                 <span>Интернет: </span>
@@ -66,8 +67,13 @@ const TariffsShowing = ({tariffs, goBack})=>{
     const [hidden, setHidden] = useState(true)
 
     const next = () =>{
-        if(currentTariff < tariffs.length-1)
-            setCurrentTariff(prev => prev+1)
+        if(currentTariff < tariffs.length-1){
+            $("#tariffs-card").fadeOut('slow', ()=>{
+                setCurrentTariff(prev => prev+1)
+                $("#tariffs-card").fadeIn('slow')
+            })
+        }
+            
 
         
         if(hidden){
@@ -109,8 +115,14 @@ const TariffsShowing = ({tariffs, goBack})=>{
     }
 
     const previous = () =>{
-        if(currentTariff > 0)
-            setCurrentTariff(prev => prev-1)
+        if(currentTariff > 0){
+            $("#tariffs-card").fadeOut('slow', ()=>{
+                setCurrentTariff(prev => prev-1)
+                $("#tariffs-card").fadeIn('slow')
+            })
+        }
+
+            
 
         if(hidden){
             setHidden(false)
