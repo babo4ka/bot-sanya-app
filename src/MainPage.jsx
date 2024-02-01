@@ -19,7 +19,7 @@ const TariffsChoosing = ({chooseTariffsGroup}) =>{
 
                 <button onClick={()=>chooseTariffsGroup("derb")} className="btn btn-primary col-12 tariff-group-btn rost-btn">GPON для ЖК "Беседа"</button>
 
-                <div id="background"></div>
+                
         </div>
     )
 }

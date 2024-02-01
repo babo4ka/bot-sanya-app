@@ -56,9 +56,7 @@
   display: block;
 }
 
-.wifi-block{
-  background-image: url("./assets//wifi-back.png");
-}
+
 
 .rost-btn{
   background-color: #7700ff;
@@ -66,8 +64,8 @@
 }
 
 .rost-btn:hover{
-  background-color: #9235fc;
-  border-color: #7700ff;
+  background-color: #da3b18;
+  border-color: #da3b18;
 }
 
 
@@ -75,22 +73,3 @@
 
 }
 
-
-#background{
-    background: url('./assets/город.svg');
-    height: 500px; 
-    width: 1325px;
-    z-index: -10;
-    top: 150px;
-    background-position: 0px 0px;
-    background-repeat: repeat-x;
-    animation: animar_edificios 12s linear infinite;
-    
-    position: absolute;
-
-}
-
-@keyframes  animar_edificios {
-  from { background-position: 0 0; }
-  to { background-position: 100% 0; }
-}
