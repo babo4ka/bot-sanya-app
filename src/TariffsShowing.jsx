@@ -4,6 +4,11 @@ import $ from 'jquery'
 
 const TariffCard = ({tariffInfo}) =>{
     
+    const chooseTariffBtnText = "выбрать этот тариф"
+
+    const warning = `после нажания на кнопку "${chooseTariffBtnText.toString().toUpperCase()}" приложение закроется и Александр получит ссылку для связи с тобой`
+
+    
     const {tg} = useTg()
 
     const onChoose = () =>{
@@ -14,47 +19,58 @@ const TariffCard = ({tariffInfo}) =>{
     return(
         <div id="tariffs-card" className="col-12 tariff-card row justify-content-center mt-3">
             <h3 className="col-12 text-center mb-5">{tariffInfo.name}</h3>
-            <div className="col-12 tariff-element text-center wifi-block">
+            <div className="col-12 tariff-element text-center wifi-block mt-3">
                 <span>Интернет: </span>
                 <span>{tariffInfo.internet} Мбит/сек.</span>
             </div>
             
             {tariffInfo.tv?
-                <div className="col-12 tariff-element text-center">
+                <div className="col-12 tariff-element text-center mt-3">
                     <span>ТВ: </span>
                     <span>{tariffInfo.tv} каналов</span>
                 </div>
             :""}
 
             {tariffInfo.wink?
-                <div className="col-12 tariff-element text-center">
+                <div className="col-12 tariff-element text-center mt-3">
                     <span>WINK: </span>
                     <span>{tariffInfo.wink}</span>
                 </div>
             :""}
 
             {tariffInfo.mobile?
-                <div className="col-12 tariff-element text-center">
+                <div className="col-12 tariff-element text-center mt-3">
                     <span>Мобильная связь: </span>
                     <span>{tariffInfo.mobile}</span>
                 </div>
             :""}
            
 
-           <div className="col-12 tariff-element text-center">
-                <span>Оборудование (аренда): </span>
-                <span>{tariffInfo.rent}</span>
+           <div className="col-12 tariff-element text-center mt-3">
+                <span>Роутер<br/></span>
+                <span>{tariffInfo.router}</span>
             </div>
 
-            <div className="col-12 tariff-element row justify-content-center text-center">
-                {/* <span>Цена: </span> */}
-                <span className="col-12">{tariffInfo.price}</span>
-                {tariffInfo.price2?
-                    <span className="col-12">{tariffInfo.price2}</span>
+            {tariffInfo.pristavka?(
+                <div className="col-12 tariff-element text-center mt-3">
+                <span>ТВ Приставка<br/></span>
+                <span>{tariffInfo.pristavka}</span>
+            </div>
+            ):""}
+
+            <div className="col-12 tariff-element row justify-content-center text-center mt-3">
+                <span>Цена<br/></span>
+                {tariffInfo.disc?
+                    <span className="col-12">{tariffInfo.disc}</span>
                 :""}
+                <span className="col-12">{tariffInfo.price}</span>
+               
             </div>
 
-            <button onClick={onChoose} className="btn btn-primary mt-5 rost-btn">Выбрать этот тариф</button>
+            <div className="col-12 row justify-content-center text-center mt-5 warning-txt">
+                <span className="col-12">{warning}</span>
+            </div>
+            <button onClick={onChoose} className="btn btn-primary mt-5 rost-btn">выбрать этот тариф</button>
 
         </div>
     )
@@ -170,6 +186,7 @@ const TariffsShowing = ({tariffs, goBack})=>{
             </div>
 
             <div className="col-12 row justify-content-center btns mt-5 margin-left-0">
+                
                 <button id="btn-back" className="btn btn-primary nav-btn text-truncate rost-btn" onClick={previous}>{"<---"}</button>
                 <button id="btn-next" className="btn btn-primary nav-btn text-truncate rost-btn" onClick={next}>{"--->"}</button>
 
