@@ -1,10 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import tariffs from "./tariffs.json"
-import { useTg } from "./utils";
-import TariffsShowing from "./TariffsShowing";
+import { useTg } from "./utils"
+import TariffsShowing from "./TariffsShowing"
 
 const TariffsChoosing = ({chooseTariffsGroup}) =>{
 
+    const {tg} = useTg()
+
+    const chooseTariffBtnText = "получить консультацию по всем тарифам"
+
+    const warning = `после нажания на кнопку "${chooseTariffBtnText.toString().toUpperCase()}" приложение закроется и Александр получит ссылку для связи с тобой`
+
+
+    const allTariffs = ()=>{
+        tg.sendData(`/consult all app`)
+        tg.close()
+    }
+
+    useEffect(()=>{
+
+    }, [tg])
 
     return(
         <div className="col-12 row justify-content-center tariffs-group-choose margin-left-0">
@@ -16,7 +31,11 @@ const TariffsChoosing = ({chooseTariffsGroup}) =>{
 
                 <button onClick={()=>chooseTariffsGroup("net-n-tv")} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет + ТВ</button>
 
-              
+
+                <span className="mt-5 text-center fw-bold">или можешь запросить консультацию по всем тарифам, кажав на кнопку ниже</span>
+                <span className="mt-5 text-center fw-bold">{warning}</span>
+   
+                <button onClick={allTariffs} className="btn btn-primary col-12 tariff-group-btn rost-btn">получить консультацию по всем тарифам</button>
         </div>
     )
 }
