@@ -33,11 +33,11 @@
 }
 
 .back{
-    transform: translateZ(-12.5px);
+    transform: translateZ(-12.5px) rotateY(180deg);
 }
 
 .left{
-    transform: translateX(-12.5px) rotateY(90deg);
+    transform: translateX(-12.5px) rotateY(-90deg);
 }
 
 .right{
