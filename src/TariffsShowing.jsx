@@ -185,7 +185,7 @@ const TariffsShowing = ({tariffs, goBack})=>{
 
             <div className="row justify-content-center">
                 <span className="fw-bold text-center">
-                    в этой категории {tariffs.length} {tariffs.length%10==1?"тариф":"тарифа"}
+                    в этой категории {tariffs.length} {tariffs.length%10===1?"тариф":"тарифа"}
                 </span>
             </div>
             
