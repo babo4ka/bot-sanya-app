@@ -178,17 +178,32 @@ const TariffsShowing = ({tariffs, goBack})=>{
 
     }
 
+
+
     return(
         <div className="container-fluid tariff-content margin-left-0">
+
+            <div className="row justify-content-center">
+                <span className="fw-bold text-center">
+                    в этой категории {tariffs.length} {tariffs.length%10==1?"тариф":"тарифа"}
+                </span>
+            </div>
+            
 
             <div className="row justify-content-center">
                 <TariffCard tariffInfo={tariffs[currentTariff]}/>
             </div>
 
             <div className="col-12 row justify-content-center btns mt-5 margin-left-0">
+
+                {tariffs.length >1?(
+                    <div className="row justify-content-center margin-left-0">
+                    <button id="btn-back" className="btn btn-primary nav-btn text-truncate rost-btn" onClick={previous}>{"<---"}</button>
+                    <button id="btn-next" className="btn btn-primary nav-btn text-truncate rost-btn" onClick={next}>{"--->"}</button>
+                </div>   
+                ):""}
+                             
                 
-                <button id="btn-back" className="btn btn-primary nav-btn text-truncate rost-btn" onClick={previous}>{"<---"}</button>
-                <button id="btn-next" className="btn btn-primary nav-btn text-truncate rost-btn" onClick={next}>{"--->"}</button>
 
                 <button onClick={goBack} className="col-12 btn btn-primary mt-5 rost-btn">
                         назад к выбору тарифов

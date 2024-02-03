@@ -33,7 +33,7 @@ const TariffsChoosing = ({chooseTariffsGroup}) =>{
 
 
                 <span className="mt-5 text-center fw-bold">или можешь запросить консультацию по всем тарифам, кажав на кнопку ниже</span>
-                <span className="mt-5 text-center fw-bold">{warning}</span>
+                <span className="mt-5 text-center fw-bold warning-txt">{warning}</span>
    
                 <button onClick={allTariffs} className="btn btn-primary col-12 tariff-group-btn rost-btn">получить консультацию по всем тарифам</button>
         </div>

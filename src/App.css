@@ -70,7 +70,7 @@
 
 
 .warning-txt{
-  color: var(--tg-theme-accent-text-color);
+  color: rgb(219, 0, 0) !important;
   font-weight: 650;
 
 }
