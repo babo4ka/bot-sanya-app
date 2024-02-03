@@ -6,11 +6,22 @@
 
 .cube{
     display: flex;
+    position: absolute;
     justify-content: center;
     align-items: center;
     transform-style: preserve-3d;
 
     animation: rotate 15s infinite linear;
+}
+
+.side-left{
+    position: absolute;
+    left: 0;
+}
+
+.side-right{
+    position: absolute;
+    right: 0;
 }
 
 .side{
