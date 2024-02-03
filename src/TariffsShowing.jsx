@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useTg } from "./utils"
 import $ from 'jquery'
+import "./Cubes.css"
 
 const TariffCard = ({tariffInfo}) =>{
     
@@ -20,6 +21,16 @@ const TariffCard = ({tariffInfo}) =>{
         <div id="tariffs-card" className="col-12 tariff-card row justify-content-center mt-3">
             <h3 className="col-12 text-center mb-5">{tariffInfo.name}</h3>
             <div className="col-12 tariff-element text-center wifi-block mt-3">
+                <div className="cube">
+                    <div class="back side wifi-logo"></div>
+                    <div class="left side wifi-logo"></div>
+                    <div class="right side wifi-logo"></div>
+                    <div class="top side wifi-logo"></div>
+                    <div class="bottom side wifi-logo"></div>
+                    <div class="front side wifi-logo"></div>
+                </div>
+                
+
                 <span>Интернет: </span>
                 <span>{tariffInfo.internet} Мбит/сек.</span>
             </div>
@@ -67,8 +78,8 @@ const TariffCard = ({tariffInfo}) =>{
                
             </div>
 
-            <div className="col-12 row justify-content-center text-center mt-5 warning-txt">
-                <span className="col-12">{warning}</span>
+            <div className="col-12 row justify-content-center text-center mt-5">
+                <span className="col-12 warning-txt">{warning}</span>
             </div>
             <button onClick={onChoose} className="btn btn-primary mt-5 rost-btn">выбрать этот тариф</button>
 
