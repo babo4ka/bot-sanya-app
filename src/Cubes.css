@@ -64,6 +64,18 @@
     background-image: url("./assets/tv-logo.png");
 }
 
+.wink-logo{
+    background-image: url("./assets/wink-logo.png");
+}
+
+.mobile-logo{
+    background-image: url("./assets/mobile-logo.jpg");
+}
+
+.price-logo{
+    background-image: url("./assets/price-logo.jpg");
+}
+
 @keyframes rotate {
     100% {
       transform:  rotateY(360deg);
