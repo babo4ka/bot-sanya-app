@@ -43,7 +43,9 @@
 .tariff-element{
   font-weight: 700;
   position: relative;
-  height: 50px;
+  /* height: 50px; */
+
+  border: 1px solid black;
 }
 
 #btn-back{

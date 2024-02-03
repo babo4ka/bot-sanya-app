@@ -16,12 +16,12 @@
 }
 
 .side-left{
-    top:0;
+    /* top:12.5px; */
     left: 15px;
 }
 
 .side-right{
-    top:0;
+    /* top:12.5px; */
     right: 15px;
 }
 

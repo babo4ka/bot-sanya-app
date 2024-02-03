@@ -1,20 +1,24 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useTg } from "./utils"
 import $ from 'jquery'
 import "./Cubes.css"
 
-const Cube = ({side, name}) =>{
+const Cube = ({side, name, elementId, cubeName}) =>{
 
+    useEffect(()=>{
+        var height = parseFloat($(`#${elementId}`).css('height'))
+        $(`.${cubeName}`).css('top', `${height/4}px`)
+    })
 
     return(
-        <div className={`cube ${side}`}>
-                    <div class={`back side ${name}`}></div>
-                    <div class={`left side ${name}`}></div>
-                    <div class={`right side ${name}`}></div>
-                    <div class={`top side ${name}`}></div>
-                    <div class={`bottom side ${name}`}></div>
-                    <div class={`front side ${name}`}></div>
-                </div>
+        <div className={`cube ${side} ${cubeName}`}>
+            <div class={`back side ${name}`}></div>
+            <div class={`left side ${name}`}></div>
+            <div class={`right side ${name}`}></div>
+            <div class={`top side ${name}`}></div>
+            <div class={`bottom side ${name}`}></div>
+            <div class={`front side ${name}`}></div>
+        </div>
     )
 }
 
@@ -37,51 +41,51 @@ const TariffCard = ({tariffInfo}) =>{
     return(
         <div id="tariffs-card" className="col-12 tariff-card row justify-content-center mt-3">
             <h3 className="col-12 text-center mb-5">{tariffInfo.name}</h3>
-            <div className="col-12 tariff-element text-center wifi-block mt-3">
+            <div id="tariff-element-wifi" className="col-12 tariff-element text-center wifi-block mt-3">
 
-                <Cube name="wifi-logo" side="side-left"/>
+                <Cube cubeName="wifi-cube" elementId="tariff-element-wifi" name="wifi-logo" side="side-left"/>
 
                 <span>ИНТЕРНЕТ</span><br/>
                 <span>{tariffInfo.internet} Мбит/сек.</span>
 
-                <Cube name="wifi-logo" side="side-right"/>
+                <Cube cubeName="wifi-cube" elementId="tariff-element-wifi" name="wifi-logo" side="side-right"/>
             </div>
             
             {tariffInfo.tv?
-                <div className="col-12 tariff-element text-center mt-3">
-                    <Cube name="tv-logo" side="side-left"/>
+                <div id="tariff-element-tv" className="col-12 tariff-element text-center mt-3">
+                    <Cube cubeName="tv-cube" elementId="tariff-element-tv" name="tv-logo" side="side-left"/>
 
                     <span>ТВ</span><br/>
                     <span>{tariffInfo.tv} {checkChannelsEnding.some(e => e === tariffInfo.tv%10)?"канала":"каналов"}</span>
 
-                    <Cube name="tv-logo" side="side-right"/>
+                    <Cube cubeName="tv-cube" elementId="tariff-element-tv" name="tv-logo" side="side-right"/>
                 </div>
             :""}
 
             {tariffInfo.wink?
-                <div className="col-12 tariff-element text-center mt-3">
-                    <Cube name="wink-logo" side="side-left"/>
+                <div id="tariff-element-wink" className="col-12 tariff-element text-center mt-3">
+                    <Cube cubeName="wink-cube" elementId="tariff-element-wink" name="wink-logo" side="side-left"/>
 
                     <span>WINK</span><br/>
                     <span>{tariffInfo.wink}</span>
                 
-                    <Cube name="wink-logo" side="side-right"/>
+                    <Cube cubeName="wink-cube" elementId="tariff-element-wink" name="wink-logo" side="side-right"/>
                 </div>
             :""}
 
             {tariffInfo.mobile?
-                <div className="col-12 tariff-element text-center mt-3">
-                    <Cube name="mobile-logo" side="side-left"/>
+                <div id="tariff-element-mobile" className="col-12 tariff-element text-center mt-3">
+                    <Cube cubeName="mobile-cube" elementId="tariff-element-mobile" name="mobile-logo" side="side-left"/>
 
                     <span>МОБИЛЬНАЯ СВЯЗЬ</span><br/>
                     <span>{tariffInfo.mobile}</span>
                 
-                    <Cube name="mobile-logo" side="side-right"/>
+                    <Cube  cubeName="mobile-cube"elementId="tariff-element-mobile" name="mobile-logo" side="side-right"/>
                 </div>
             :""}
 
-            <div className="col-12 tariff-element row justify-content-center text-center mt-3">
-                <Cube name="price-logo" side="side-left"/>
+            <div id="tariff-element-price" className="col-12 tariff-element row justify-content-center text-center mt-3">
+                <Cube cubeName="price-cube" elementId="tariff-element-price" name="price-logo" side="side-left"/>
 
                 <span>ЦЕНА<br/></span><br/>
                 {tariffInfo.disc?
@@ -89,20 +93,20 @@ const TariffCard = ({tariffInfo}) =>{
                 :""}
                 <span className="col-12">{tariffInfo.price}</span>
                
-                <Cube name="price-logo" side="side-right"/>
+                <Cube cubeName="price-cube" elementId="tariff-element-price" name="price-logo" side="side-right"/>
             </div>
            
 
-           <div className="col-12 tariff-element text-center mt-5">
+           <div id="tariff-element-router" className="col-12 tariff-element text-center mt-5">
                 <span>РОУТЕР<br/></span>
                 <span>{tariffInfo.router}</span>
             </div>
 
             {tariffInfo.pristavka?(
-                <div className="col-12 tariff-element text-center mt-3">
-                <span>ТВ ПРИСТАВКА<br/></span>
-                <span>{tariffInfo.pristavka}</span>
-            </div>
+                <div id="tariff-element-pristavka" className="col-12 tariff-element text-center mt-3">
+                    <span>ТВ ПРИСТАВКА<br/></span>
+                    <span>{tariffInfo.pristavka}</span>
+                </div>
             ):""}
 
 
