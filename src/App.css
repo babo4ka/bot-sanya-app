@@ -42,7 +42,7 @@
 
 .tariff-element{
   font-weight: 700;
-
+  position: relative;
   height: 50px;
 }
 

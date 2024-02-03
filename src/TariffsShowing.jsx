@@ -38,15 +38,6 @@ const TariffCard = ({tariffInfo}) =>{
             <div className="col-12 tariff-element text-center wifi-block mt-3">
 
                 <Cube name="wifi-logo" side="side-left"/>
-                {/* <div className="cube">
-                    <div class="back side wifi-logo"></div>
-                    <div class="left side wifi-logo"></div>
-                    <div class="right side wifi-logo"></div>
-                    <div class="top side wifi-logo"></div>
-                    <div class="bottom side wifi-logo"></div>
-                    <div class="front side wifi-logo"></div>
-                </div> */}
-                
 
                 <span>Интернет: </span>
                 <span>{tariffInfo.internet} Мбит/сек.</span>
@@ -56,8 +47,12 @@ const TariffCard = ({tariffInfo}) =>{
             
             {tariffInfo.tv?
                 <div className="col-12 tariff-element text-center mt-3">
+                    <Cube name="tv-logo" side="side-left"/>
+
                     <span>ТВ: </span>
                     <span>{tariffInfo.tv} каналов</span>
+
+                    <Cube name="tv-logo" side="side-right"/>
                 </div>
             :""}
 

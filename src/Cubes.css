@@ -7,6 +7,7 @@
 .cube{
     display: flex;
     position: absolute;
+    top:0;
     justify-content: center;
     align-items: center;
     transform-style: preserve-3d;
@@ -15,13 +16,13 @@
 }
 
 .side-left{
-    position: absolute;
-    left: 0;
+    top:0;
+    left: 15px;
 }
 
 .side-right{
-    position: absolute;
-    right: 0;
+    top:0;
+    right: 15px;
 }
 
 .side{
@@ -57,6 +58,10 @@
 
 .wifi-logo{
     background-image: url("./assets/wifi-logo.png");
+}
+
+.tv-logo{
+    background-image: url("./assets/tv-logo.png");
 }
 
 @keyframes rotate {
