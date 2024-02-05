@@ -99,7 +99,12 @@ const TariffCard = ({tariffInfo}) =>{
 
            <div id="tariff-element-router" className="col-12 tariff-element text-center mt-5">
                 <span>РОУТЕР<br/></span>
-                <span>{tariffInfo.router}</span>
+                {tariffInfo.router instanceof Array?tariffInfo.router.map(r => (
+                    <span>{r}<br/></span>
+                )):(
+                    <span>{tariffInfo.router}</span>
+                )}
+                
             </div>
 
             {tariffInfo.pristavka?(
