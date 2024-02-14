@@ -45,7 +45,7 @@ const MainPage = () =>{
     const {tg, user}= useTg()
 
     useEffect(()=>{
-        tg.ready()
+        
     }, [tg])
 
     const [tariffsGroup, setTariffsGroup] = useState(undefined)
