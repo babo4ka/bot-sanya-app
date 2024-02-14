@@ -131,17 +131,6 @@ const TariffsShowing = ({tariffs, goBack, group})=>{
 
     const [hidden, setHidden] = useState(true)
 
-    const {tg, user} = useTg()
-
-    useEffect(()=>{
-        tg.ready()
-        
-        if(user){
-            $.get(`http://localhost:8080/update?uid=${user.id}&group=${group}`)
-        }
-        
-    }, [tg, group, user])
-    
 
     const next = () =>{
         if(currentTariff < tariffs.length-1){
@@ -247,8 +236,6 @@ const TariffsShowing = ({tariffs, goBack, group})=>{
             <div className="row justify-content-center">
                 <span className="fw-bold text-center">
                     в этой категории {tariffs.length} {tariffs.length%10===1?"тариф":"тарифа"}
-
-                    {user} {tg.initDataUnsafe.user}
                 </span>
             </div>
             
