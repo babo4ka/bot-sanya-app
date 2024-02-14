@@ -125,11 +125,23 @@ const TariffCard = ({tariffInfo}) =>{
     )
 }
 
-const TariffsShowing = ({tariffs, goBack})=>{
+const TariffsShowing = ({tariffs, goBack, group})=>{
 
     const [currentTariff, setCurrentTariff] = useState(0)
 
     const [hidden, setHidden] = useState(true)
+
+    const {user, tg} = useTg()
+
+    useEffect(()=>{
+        tg.ready()
+
+        if(user){
+            $.get(`http://localhost:8080/update?uid=${user.id}&group=${group}`)
+        }
+        
+    }, [tg])
+    
 
     const next = () =>{
         if(currentTariff < tariffs.length-1){
