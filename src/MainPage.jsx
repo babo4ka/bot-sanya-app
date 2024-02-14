@@ -42,7 +42,7 @@ const TariffsChoosing = ({chooseTariffsGroup}) =>{
 
 const MainPage = () =>{
 
-    const {tg, user}= useTg()
+    const {tg}= useTg()
 
     useEffect(()=>{
         tg.ready()
