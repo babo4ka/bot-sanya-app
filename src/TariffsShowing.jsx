@@ -140,7 +140,7 @@ const TariffsShowing = ({tariffs, goBack, group})=>{
             $.get(`http://localhost:8080/update?uid=${user.id}&group=${group}`)
         }
         
-    }, [tg])
+    }, [tg, group, user])
     
 
     const next = () =>{
