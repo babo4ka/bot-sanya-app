@@ -18,7 +18,7 @@ const TariffsChoosing = ({chooseTariffsGroup}) =>{
     }
 
     useEffect(()=>{
-
+        tg.ready()
     }, [tg])
 
     return(
@@ -62,7 +62,7 @@ const MainPage = () =>{
     
     return(
         <div className="container-fluid main">
-            <h4 className="text-center">Привет, {user?user.first_name:" безымянный"}</h4>
+            <h4 className="text-center">Привет, {user?user.first_name + " " + user.id:" безымянный"}</h4>
             <h6 className="text-center">Ниже ты можешь ознакомиться с нашими тарифами и выбрать интересующий, я сообщу Александру и он свяжется с тобой</h6>
 
 
