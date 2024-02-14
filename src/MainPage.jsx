@@ -23,13 +23,13 @@ const TariffsChoosing = ({chooseTariffsGroup}) =>{
 
     return(
         <div className="col-12 row justify-content-center tariffs-group-choose margin-left-0">
-                <button onClick={()=>chooseTariffsGroup("net-n-tv-mob")} group={2} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет + ТВ + Мобильная связь</button>
+                <button onClick={()=>chooseTariffsGroup("net-n-tv-mob", 2)} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет + ТВ + Мобильная связь</button>
 
 
-                <button onClick={()=>chooseTariffsGroup("net")} group={3} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет</button>
+                <button onClick={()=>chooseTariffsGroup("net", 3)} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет</button>
 
 
-                <button onClick={()=>chooseTariffsGroup("net-n-tv")} group={4} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет + ТВ</button>
+                <button onClick={()=>chooseTariffsGroup("net-n-tv", 4)} className="btn btn-primary col-12 tariff-group-btn rost-btn">Интернет + ТВ</button>
 
 
                 <span className="mt-5 text-center fw-bold">или можешь запросить консультацию по всем тарифам, кажав на кнопку ниже</span>
@@ -50,8 +50,8 @@ const MainPage = () =>{
 
     const [tariffsGroup, setTariffsGroup] = useState(undefined)
 
-    const chooseTariffsGroup = (group)=>{
-        setTariffsGroup(<TariffsShowing tariffs={tariffs[group]} goBack={goBack}/>)
+    const chooseTariffsGroup = (group, num)=>{
+        setTariffsGroup(<TariffsShowing tariffs={tariffs[group]} group={num} goBack={goBack}/>)
     }
 
     const goBack = ()=>{
