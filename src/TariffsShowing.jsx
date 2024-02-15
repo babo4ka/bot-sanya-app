@@ -33,7 +33,7 @@ const TariffCard = ({tariffInfo}) =>{
 
     const onChoose = () =>{
         tg.sendData(`/consult ${tariffInfo.number} app`)
-        tg.close()
+        // tg.close()
     }
 
     const checkChannelsEnding = [2,3,4]
